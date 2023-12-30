@@ -1,0 +1,3 @@
+[submodule "ruby/vending_machine/vending_machine"]
+	path = ruby/vending_machine/vending_machine
+	url = https://github.com/TomoXiang710/vending_machine.git
