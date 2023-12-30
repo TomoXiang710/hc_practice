@@ -1,0 +1,3 @@
+[submodule "vending_machine"]
+    path = vending_machine
+    url = https://github.com/TomoXiang710/vending_machine.git
