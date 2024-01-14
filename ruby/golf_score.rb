@@ -1,44 +1,54 @@
-def calculate_score(x, y)
-  score = y - x
-  case score
-  when -4
-    'コンドル' if x == 5
-  when -3
-    if y == 1
-      'ホールインワン'
-    else
-      'アルバトロス'
-    end
-  when -2
-    if y == 1
-      'ホールインワン'
-    else
-      'イーグル'
-    end
-    # 'イーグル' if y == 1
-  when -1
-    'バーディ'
-  when 0
-    'パー'
-  when 1
-    'ボギー'
-  when 2..Float::INFINITY
-    "#{score}ボギー"
-  end
-end
+  SCORE_MAPPING = {
+  -4 => 'コンドル',
+  -3 => 'アルバトロス',
+  -2 => 'イーグル',
+  -1 => 'バーディ',
+  0  => 'パー',
+  1  => 'ボギー'
+}
 
 # 入力を受け取る
-lines = []
-2.times { lines << gets.chomp.split(",") }
+par = gets.chomp.split(',').map(&:to_i)
+stroke = gets.chomp.split(',').map(&:to_i)
+
+# 結果を格納する配列
+result = []
 
 # 各ホールのスコアを計算して出力
-result = []
 (0..17).each do |i|
-  x = lines[0][i].to_i
-  y = lines[1][i].to_i
+  x = par[i]
+  y = stroke[i]
+  score = y - x
+  if (y == 1 && x == 4) || (y == 1 && x == 3)
+    result << 'ホールインワン'
+    next
+  end
 
-  result << calculate_score(x, y)
+  if score > 1
+    result << "#{score}ボギー" 
+  else
+    result << SCORE_MAPPING[score]
+  end
 end
 
 # 結果をカンマ区切りで出力
 puts result.join(',')
+
+
+
+
+
+
+# # 入力を受け取る
+# lines = []
+# 2.times { lines << gets.chomp.split(",") }
+# # 各ホールのスコアを計算して出力
+# result = []
+# (0..17).each do |i|
+#   x = lines[0][i].to_i
+#   y = lines[1][i].to_i
+#   y - x = score
+#   result << calculate_score(x, y)
+# end
+# # 結果をカンマ区切りで出力
+# puts result.join(',')
