@@ -33,22 +33,3 @@ end
 
 # 結果をカンマ区切りで出力
 puts result.join(',')
-
-
-
-
-
-
-# # 入力を受け取る
-# lines = []
-# 2.times { lines << gets.chomp.split(",") }
-# # 各ホールのスコアを計算して出力
-# result = []
-# (0..17).each do |i|
-#   x = lines[0][i].to_i
-#   y = lines[1][i].to_i
-#   y - x = score
-#   result << calculate_score(x, y)
-# end
-# # 結果をカンマ区切りで出力
-# puts result.join(',')
