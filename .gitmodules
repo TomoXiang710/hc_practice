@@ -4,3 +4,6 @@
 [submodule "ruby/pokemon"]
 	path = ruby/pokemon
 	url = https://github.com/TomoXiang710/pokemon.git
+[submodule "twitter_erd"]
+	path = twitter_erd
+	url = https://github.com/TomoXiang710/twitter_erd.git
